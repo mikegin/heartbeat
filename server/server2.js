@@ -1,7 +1,14 @@
-const { clear } = require('console');
 const dgram = require('dgram');
 const server = dgram.createSocket('udp4');
-const PORT = 41235
+
+var myArgs = process.argv.slice(2);
+
+if(myArgs.length < 1) {
+  console.log('requires port number')
+  return
+}
+
+const PORT = myArgs[0]
 
 const intervalToPort = {
 
